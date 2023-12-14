@@ -12,10 +12,10 @@ public class PcActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pc);
-
-        RecyclerView recyclerView = findViewById(R.id.rvAnimals);
+        ArrayList<Pokemon> pokemons= PC.getPokemons(this);
+        RecyclerView recyclerView = findViewById(R.id.rvPokemon);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new AnimalAdapter(this, animal));
+        recyclerView.setAdapter(new PokemonAdapter(this, pokemons));
     }
 }
 

@@ -122,13 +122,13 @@ public class CatchPokemon extends AppCompatActivity {
                 TextView width = findViewById(R.id.textViewWidth);
                 TextView height = findViewById(R.id.textViewHeight);
                 ImageView iv = findViewById(R.id.imageViewPokemon);
-                name.setText("Name: " + pokemon.getName());
-                width.setText("Width: " + pokemon.getWeight());  // Assuming 'weight' is the width
-                height.setText("Height: " + pokemon.getHeight());
                 String imageUrl = pokemon.getSprites();
                 Glide.with(ctx)
                         .load(imageUrl)
                         .into(iv);
+                name.setText("Name: " + pokemon.getName());
+                width.setText("Width: " + pokemon.getWeight());  // Assuming 'weight' is the width
+                height.setText("Height: " + pokemon.getHeight());
             } catch (Exception e) {
                 e.printStackTrace();
             }

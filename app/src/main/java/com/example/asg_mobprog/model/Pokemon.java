@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import com.google.gson.annotations.SerializedName;
 
+
 class PokemonSprites {
 
     @SerializedName("front_default")

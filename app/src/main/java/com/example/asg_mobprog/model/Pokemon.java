@@ -33,6 +33,12 @@ public class Pokemon {
     public Pokemon() {
     }
 
+    public Pokemon(String name,String height, PokemonSprites sprites, String weight) {
+        this.name = name;
+        this.height = height;
+        this.sprites = sprites;
+        this.width = width;
+    }
 
     public String getName() {
         return name;

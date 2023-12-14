@@ -1,17 +1,22 @@
+package com.example.asg_mobprog.viewholder;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
 
-
+import com.example.asg_mobprog.R;
 
 public class PokemonViewHolder extends RecyclerView.ViewHolder {
     public TextView name;
     public TextView width;
     public TextView height;
     public ImageView iv;
-    public PokemonViewHolder(@NonNull View itemView) {
+    public PokemonViewHolder(View itemView) {
         super(itemView);
-        name = findViewById(R.id.textViewName);
-        width = findViewById(R.id.textViewWidth);
-        height = findViewById(R.id.textViewHeight);
-        iv = findViewById(R.id.imageViewPokemon);
+        name = itemView.findViewById(R.id.textViewName);
+        width = itemView.findViewById(R.id.textViewWidth);
+        height = itemView.findViewById(R.id.textViewHeight);
+        iv = itemView.findViewById(R.id.imageViewPokemon);
     }
 }

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,14 +26,15 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class CatchPokemon extends AppCompatActivity {
+    int captureAttempts = 0;
     Context ctx;
     Pokemon pokemon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.catchpokemon);
+        setContentView(R.layout.catch_pokemon);
         ctx=this;
-        Button b = findViewById(R.id.btnSearchPokemon);
+        Button b = findViewById(R.id.btnCatchPokemon);
         Button y = findViewById(R.id.btnRandomPokemon);
         Button m = findViewById(R.id.btnNavigate);
         PokemonRequest d = new PokemonRequest();
@@ -42,19 +44,28 @@ public class CatchPokemon extends AppCompatActivity {
             Random random = new Random();
             int randomNumber = random.nextInt(10) + 1;
 
-            if(randomNumber >= 5){
+            if(randomNumber >= 6){
                 ArrayList<Pokemon> pokemons = PC.getPokemons(this);
                 pokemons.add(pokemon);
                 PC.savePokemons(this, pokemons);
 
-                ArrayList<Pokemon> pokemons1 = PC.getPokemons(this);
-
+                Toast.makeText(this, "Catch Success", Toast.LENGTH_SHORT).show();
                 PokemonRequest h = new PokemonRequest();
                 h.execute();
+                captureAttempts = 0;
             }
 
             else{
-                Log.v("Catch Failed", "Catch Failed");
+                captureAttempts++;
+                if (captureAttempts >= 3) {
+                    Toast.makeText(this, "Pokemon fled away!", Toast.LENGTH_SHORT).show();
+                    captureAttempts = 0;
+                    PokemonRequest h = new PokemonRequest();
+                    h.execute();
+                } else {
+                    Toast.makeText(this, "Catch Failed. Attempts left: " + (3 - captureAttempts), Toast.LENGTH_SHORT).show();
+                }
+
             }
 
 

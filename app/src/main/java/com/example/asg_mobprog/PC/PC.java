@@ -1,10 +1,13 @@
 package com.example.asg_mobprog.PC;
 
 import com.example.asg_mobprog.model.Pokemon;
-
+import com.google.gson.reflect.TypeToken;
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.google.gson.Gson;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 public class PC {
 

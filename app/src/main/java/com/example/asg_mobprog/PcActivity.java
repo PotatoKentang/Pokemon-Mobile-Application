@@ -24,6 +24,7 @@ public class PcActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setAdapter(new PokemonAdapter(this, pokemons));
 
+
     }
 }
 

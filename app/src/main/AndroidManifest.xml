@@ -23,6 +23,7 @@
 
         <activity android:name=".PcActivity"/>
         <activity android:name=".CatchPokemon"/>
+        <activity android:name=".DetailPage"/>
     </application>
 
 
